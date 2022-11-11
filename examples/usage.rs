@@ -11,7 +11,7 @@ table! {
     }
 }
 
-#[derive(AsChangeset, Insertable, Queryable, PartialEq, Clone)]
+#[derive(AsChangeset, Insertable, Queryable, PartialEq, Eq, Clone)]
 #[diesel(table_name = users)]
 pub struct User {
     pub id: i32,
@@ -104,9 +104,7 @@ async fn main() {
 
     // Transaction returning custom error types.
     let _: MyError = pool
-        .transaction(|_| {
-            return Err::<(), MyError>(MyError::Other {});
-        })
+        .transaction(|_| Err::<(), MyError>(MyError::Other {}))
         .await
         .unwrap_err();
 
@@ -117,7 +115,7 @@ async fn main() {
             .set(dsl::name.eq("Let's change the name again"))
             .execute_async(&conn)
             .await
-            .map_err(|e| PoolError::Connection(e))
+            .map_err(PoolError::Connection)
     })
     .await
     .unwrap();

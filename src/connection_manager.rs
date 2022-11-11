@@ -86,7 +86,7 @@ where
     async fn is_valid(&self, conn: &mut Self::Connection) -> Result<(), Self::Error> {
         let c = Connection(conn.0.clone());
         self.run_blocking(move |m| {
-            m.is_valid(&mut *c.inner())?;
+            m.is_valid(&mut c.inner())?;
             Ok(())
         })
         .await
@@ -135,6 +135,6 @@ where
     }
 
     fn as_async_conn(owned: &Self::OwnedConnection) -> &crate::connection::Connection<Conn> {
-        &*owned
+        owned
     }
 }
