@@ -64,7 +64,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 [[package]]
 name = "diesel"
 version = "2.0.2"
-source = "git+https://bitbucket.org/sanchithhegde-juspay/diesel?rev=b447d6685334582271222034bf9dfb12872cf6fc#b447d6685334582271222034bf9dfb12872cf6fc"
+source = "git+https://github.com/juspay/diesel?rev=22f3f59f1db8a3f61623e4d6b375d64cd7bd3d02#22f3f59f1db8a3f61623e4d6b375d64cd7bd3d02"
 dependencies = [
  "bitflags",
  "byteorder",
@@ -77,7 +77,7 @@ dependencies = [
 [[package]]
 name = "diesel_derives"
 version = "2.0.1"
-source = "git+https://bitbucket.org/sanchithhegde-juspay/diesel?rev=b447d6685334582271222034bf9dfb12872cf6fc#b447d6685334582271222034bf9dfb12872cf6fc"
+source = "git+https://github.com/juspay/diesel?rev=22f3f59f1db8a3f61623e4d6b375d64cd7bd3d02#22f3f59f1db8a3f61623e4d6b375d64cd7bd3d02"
 dependencies = [
  "proc-macro-error",
  "proc-macro2",
