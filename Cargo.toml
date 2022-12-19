@@ -9,12 +9,14 @@ repository = "https://github.com/oxidecomputer/async-bb8-diesel"
 keywords = ["diesel", "r2d2", "pool", "tokio", "async"]
 
 [dependencies]
+diesel = { version = "2.0.2", default-features = false, features = ["r2d2"] }
 bb8 = "0.8"
 async-trait = "0.1.58"
-diesel = { git = "https://github.com/juspay/diesel", default-features = false, features = ["r2d2"], branch = "expose-drainer-func" }
 thiserror = "1.0"
-tokio = { version = "1.21", default-features = false, features = ["rt-multi-thread"] }
+tokio = { version = "1.21", default-features = false, features = [
+    "rt-multi-thread",
+] }
 
 [dev-dependencies]
-diesel = { git = "https://github.com/juspay/diesel", features = ["postgres", "r2d2"], branch = "expose-drainer-func" }
+diesel = { version = "2.0.2", features = ["postgres", "r2d2"] }
 tokio = { version = "1.21", features = ["macros"] }
